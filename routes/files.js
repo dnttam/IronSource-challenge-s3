@@ -37,18 +37,15 @@ router.get("/", (req, res) => {
 router.get("/:user/:filename", async (req, res) => {
   // go to the database and look for this file for this user
   try {
-    const metadataSnapshot = await firestore.getFileByName(
+    // look for the file metadata
+    const metadataAndID = await firestore.getFileByName(
       req.params.user,
       req.params.filename
     );
+    // no such file?
+    if (!metadataAndID) return res.status(404).send(`file not found`);
 
-    // not found?
-    if (metadataSnapshot.docs.length == 0) {
-      return res.status(404).send(`file not found`);
-    }
-
-    // extract the metadata
-    const metadata = metadataSnapshot.docs[0].data();
+    const metadata = metadataAndID.metadata;
 
     // prviate file? not this route..
     if (!metadata.isPublic) {
@@ -60,6 +57,9 @@ router.get("/:user/:filename", async (req, res) => {
       return res.send(metadata);
     }
 
+    // has the file been deleted?
+    if (metadata.deletedAt)
+      return res.status(404).send("File has been deleted");
     // download the file
     return res.download(`${__dirname}/../files/${metadata.filename}`);
   } catch (err) {
@@ -83,6 +83,9 @@ router.get("/:id", async (req, res) => {
     if (req.query.metadata) {
       return res.send(metadata);
     }
+
+    if (metadata.deletedAt)
+      return res.status(404).send("File has been deleted");
 
     // download the file
     return res.download(`${__dirname}/../files/${metadata.filename}`);
@@ -113,8 +116,21 @@ router.post("/", auth, upload.single("file"), async (req, res) => {
   };
 
   try {
-    const savedMetadata = await firestore.addFileData(metdata);
-    res.send({ id: savedMetadata.id, data: savedMetadata.data() });
+    // check if the file exists already
+    const metadataAndID = await firestore.getFileByName(
+      req.user.name,
+      req.file.originalname
+    );
+
+    // file metadta already exit?
+    if (metadataAndID) {
+      // at this point, the new file is already in the file system. Just need to update the metadata
+      await firestore.updateMetadata(metadataAndID.id, metdata);
+      res.send({ id: metadataAndID.id, data: metdata });
+    } else {
+      const savedMetadata = await firestore.addFileData(metdata);
+      res.send({ id: savedMetadata.id, data: savedMetadata.data() });
+    }
   } catch (err) {
     res.status(500).send(err);
   }
@@ -142,7 +158,7 @@ router.put("/:id", auth, async (req, res) => {
     updatedMetadata.updatedAt = Date.now();
 
     // update the database
-    await firestore.updateFileAccessModifier(req.params.id, updatedMetadata);
+    await firestore.updateMetadata(req.params.id, updatedMetadata);
 
     res.send(updatedMetadata);
   } catch (err) {
@@ -180,7 +196,7 @@ router.delete("/:id", auth, async (req, res) => {
     fs.unlink(`${__dirname}/../files/${metadata.filename}`);
 
     // update the metadata
-    await firestore.updateFileAccessModifier(req.params.id, updatedMetadata);
+    await firestore.updateMetadata(req.params.id, updatedMetadata);
 
     res.send(updatedMetadata);
   } catch (err) {

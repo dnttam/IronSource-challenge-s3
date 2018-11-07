@@ -16,13 +16,26 @@ class FirestoreHelper {
   }
 
   getFileByName(user, filename) {
-    const db = admin.firestore();
-    const filesRef = db.collection("files");
-    const fileData = filesRef
-      .where("originalname", "==", filename)
-      .where("user", "==", user);
+    return new Promise(async (resolve, reject) => {
+      const db = admin.firestore();
+      const filesRef = db.collection("files");
+      const fileData = filesRef
+        .where("originalname", "==", filename)
+        .where("user", "==", user);
 
-    return fileData.get();
+      const metadataSnapshot = await fileData.get();
+
+      // not found?
+      if (metadataSnapshot.docs.length == 0) {
+        return resolve(null);
+      }
+
+      // extract the metadata
+      resolve({
+        metadata: metadataSnapshot.docs[0].data(),
+        id: metadataSnapshot.docs[0].ref.id
+      });
+    });
   }
 
   getFileByID(id, accessToken) {
@@ -75,7 +88,7 @@ class FirestoreHelper {
     });
   }
 
-  updateFileAccessModifier(id, newMetadata) {
+  updateMetadata(id, newMetadata) {
     const db = admin.firestore();
     const filesRef = db.collection("files").doc(id);
 
