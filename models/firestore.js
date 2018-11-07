@@ -13,7 +13,6 @@ class FirestoreHelper {
     await docRef.set(metadata);
 
     return docRef.get();
-    return docRef.id;
   }
 
   getFileByName(user, filename) {
@@ -68,7 +67,7 @@ class FirestoreHelper {
       if (metadata.user !== user) {
         reject({
           code: 401,
-          message: "You are not authorized to download this file"
+          message: "You are not authorized to access this file"
         });
       }
 
@@ -85,47 +84,3 @@ class FirestoreHelper {
 }
 
 module.exports = FirestoreHelper;
-
-//const firestore = new FirestoreHelper();
-
-//firestore.getFileByName("user1", "letter.docx");
-
-// firestore
-//   .addFileData({
-//     name: "letter.docx",
-//     username: "user1",
-//     size: 12540
-//   })
-//   .then(result => console.log({ data: result.data(), id: result.id }));
-
-// const Firestore = require("@google-cloud/firestore");
-
-// admin.initializeApp(functions.config().firebase);
-
-// var db = admin.firestore();
-
-// class FirestoreHelper {
-//   addFileData(metadata) {
-//     const firestore = new Firestore({
-//       projectId: "msgv-8b8c2",
-//       keyFilename: "../firestore.json"
-//     });
-
-//     firestore.
-//     const document = firestore.doc("files");
-//     document.set(metadata).then(() => {});
-//   }
-// }
-
-// // const document = firestore.doc("posts/intro-to-firestore");
-
-// // // Enter new data into the document.
-// // document
-// //   .set({
-// //     title: "Welcome to Firestore",
-// //     body: "Hello World"
-// //   })
-// //   .then(() => {
-// //     // Document created successfully.
-// //   })
-// //   .catch(err => console.log(err));

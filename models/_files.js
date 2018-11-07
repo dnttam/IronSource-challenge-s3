@@ -1,6 +1,12 @@
 const jwt = require("jsonwebtoken");
 const fs = require("fs");
 const path = require("path");
+const Firestore = require("@google-cloud/firestore");
+
+const firestore = new Firestore({
+  projectId: "msgv-8b8c2",
+  keyFilename: "../firestore.json"
+});
 
 class FileHandler {
   getMetadata(fileID, accessToken) {
