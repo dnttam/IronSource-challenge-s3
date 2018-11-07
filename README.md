@@ -11,3 +11,5 @@ An Amazon S3 like node.js back-end for upload/download of public/private files
 |-|-|
 |user1|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjEiLCJpZCI6InFBemVmMzJGIiwiaWF0IjoxNTQxNTMwMjMyfQ.XwBVOYy4CUATXKvWBwaU0yqyEkf6LjCftXJP1yxKcOg|
 
+
+http://localhost:5000/api/files/gRvmRaSDqVuX0k6ABkj0?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjEiLCJpZCI6InFBemVmMzJGIiwiaWF0IjoxNTQxNTMwMjMyfQ.XwBVOYy4CUATXKvWBwaU0yqyEkf6LjCftXJP1yxKcOg
