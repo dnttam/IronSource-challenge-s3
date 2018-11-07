@@ -6,7 +6,7 @@
 	},
 	"item": [
 		{
-			"name": "Get Root",
+			"name": "01. User Get Public",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -15,45 +15,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": ""
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Post File",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"type": "text"
-					},
-					{
-						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjEiLCJpZCI6InFBemVmMzJGIiwiaWF0IjoxNTQxNTMwMjMyfQ.XwBVOYy4CUATXKvWBwaU0yqyEkf6LjCftXJP1yxKcOg",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "file",
-							"type": "file",
-							"src": ""
-						},
-						{
-							"key": "isPublic",
-							"value": "true",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/files/",
+					"raw": "http://localhost:5000/api/files/user1/20171118_110354195_iOS.jpg?",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -62,170 +24,22 @@
 					"path": [
 						"api",
 						"files",
-						""
-					],
-					"query": [
-						{
-							"key": "filename",
-							"value": "",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "User1 upload file",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"type": "text"
-					},
-					{
-						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjEiLCJpZCI6InFBemVmMzJGIiwiaWF0IjoxNTQxNTMwMjMyfQ.XwBVOYy4CUATXKvWBwaU0yqyEkf6LjCftXJP1yxKcOg",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "file",
-							"type": "file",
-							"src": ""
-						},
-						{
-							"key": "isPublic",
-							"value": "true",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/files/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"files",
-						""
-					],
-					"query": [
-						{
-							"key": "filename",
-							"value": "",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Get file with ID 9m8qb8sjo64kpc5",
-			"request": {
-				"method": "GET",
-				"header": [],
-				"body": {
-					"mode": "raw",
-					"raw": ""
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/files/letter.docx?",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"files",
-						"letter.docx"
+						"user1",
+						"20171118_110354195_iOS.jpg"
 					],
 					"query": [
 						{
 							"key": "metadata",
 							"value": "true",
 							"disabled": true
-						},
-						{
-							"key": "access_token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjIiLCJpZCI6ImhUOUxtZHjigJkiLCJpYXQiOjE1NDE1MzAyMzJ9.y-5_ns9zVX1dijJloI3Jhga7kCcPFyfxx9lZWK8fbb8",
-							"disabled": true
 						}
 					]
 				}
 			},
-			"response": [
-				{
-					"name": "Get file with ID 9m8qb8sjo64kpc5",
-					"originalRequest": {
-						"method": "GET",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": ""
-						},
-						"url": {
-							"raw": "http://localhost:5000/api/files/user1/letter.docx",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "5000",
-							"path": [
-								"api",
-								"files",
-								"user1",
-								"letter.docx"
-							]
-						}
-					},
-					"status": "Internal Server Error",
-					"code": 500,
-					"_postman_previewlanguage": "html",
-					"header": [
-						{
-							"key": "X-Powered-By",
-							"value": "Express"
-						},
-						{
-							"key": "Content-Type",
-							"value": "text/html; charset=utf-8"
-						},
-						{
-							"key": "Content-Length",
-							"value": "13"
-						},
-						{
-							"key": "ETag",
-							"value": "W/\"d-cw5ifhPqXkD5iZp6FpjZrRzGOL4\""
-						},
-						{
-							"key": "Date",
-							"value": "Wed, 07 Nov 2018 08:07:16 GMT"
-						},
-						{
-							"key": "Connection",
-							"value": "keep-alive"
-						}
-					],
-					"cookie": [],
-					"body": "public route!"
-				}
-			]
+			"response": []
 		},
 		{
-			"name": "Get by ID, User2, Unauthorized",
+			"name": "02. User 1 trying to get private file of user2 and fails",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -234,7 +48,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/files/sLsBkPu8szZTmiYzURIz?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjIiLCJpZCI6ImhUOUxtZHjigJkiLCJpYXQiOjE1NDE1MzAyMzJ9.y-5_ns9zVX1dijJloI3Jhga7kCcPFyfxx9lZWK8fbb8",
+					"raw": "http://localhost:5000/api/files/user2/20171118_110354195_iOS.jpg",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -243,20 +57,15 @@
 					"path": [
 						"api",
 						"files",
-						"sLsBkPu8szZTmiYzURIz"
-					],
-					"query": [
-						{
-							"key": "access_token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjIiLCJpZCI6ImhUOUxtZHjigJkiLCJpYXQiOjE1NDE1MzAyMzJ9.y-5_ns9zVX1dijJloI3Jhga7kCcPFyfxx9lZWK8fbb8"
-						}
+						"user2",
+						"20171118_110354195_iOS.jpg"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "Get by name,User 1",
+			"name": "03. Private file download using ID and token",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -265,89 +74,13 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/files/alffhaskfasfsa?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjIiLCJpZCI6ImhUOUxtZHjigJkiLCJpYXQiOjE1NDE1MzAyMzJ9.y-5_ns9zVX1dijJloI3Jhga7kCcPFyfxx9lZWK8fbb8",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"files",
-						"alffhaskfasfsa"
-					],
-					"query": [
-						{
-							"key": "metadata",
-							"value": "true",
-							"disabled": true
-						},
-						{
-							"key": "access_token",
-							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjIiLCJpZCI6ImhUOUxtZHjigJkiLCJpYXQiOjE1NDE1MzAyMzJ9.y-5_ns9zVX1dijJloI3Jhga7kCcPFyfxx9lZWK8fbb8"
-						}
-					]
+					"raw": ""
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "User 2 upload private",
-			"request": {
-				"method": "POST",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"value": "application/x-www-form-urlencoded",
-						"type": "text"
-					},
-					{
-						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjEiLCJpZCI6InFBemVmMzJGIiwiaWF0IjoxNTQxNTMwMjMyfQ.XwBVOYy4CUATXKvWBwaU0yqyEkf6LjCftXJP1yxKcOg",
-						"type": "text"
-					}
-				],
-				"body": {
-					"mode": "formdata",
-					"formdata": [
-						{
-							"key": "file",
-							"type": "file",
-							"src": ""
-						},
-						{
-							"key": "isPublic",
-							"value": "true",
-							"type": "text"
-						}
-					]
-				},
-				"url": {
-					"raw": "http://localhost:5000/api/files/",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "5000",
-					"path": [
-						"api",
-						"files",
-						""
-					],
-					"query": [
-						{
-							"key": "filename",
-							"value": "",
-							"disabled": true
-						}
-					]
-				}
-			},
-			"response": []
-		},
-		{
-			"name": "Update file xxK833PISxEIeVrKtVuF",
+			"name": "04. Update the file from request 02",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -365,10 +98,10 @@
 				],
 				"body": {
 					"mode": "raw",
-					"raw": "{\n\t\"isPublic\": true\n}"
+					"raw": "{\n\t\"isPublic\": false\n}"
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/files/xxK833PISxEIeVrKtVuF?",
+					"raw": "http://localhost:5000/api/files/Fh72jbLSn8wmc7WT0SBb?",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -377,11 +110,97 @@
 					"path": [
 						"api",
 						"files",
-						"xxK833PISxEIeVrKtVuF"
+						"Fh72jbLSn8wmc7WT0SBb"
 					],
 					"query": [
 						{
 							"key": "",
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "05. Delete user2's file",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjEiLCJpZCI6InFBemVmMzJGIiwiaWF0IjoxNTQxNTMwMjMyfQ.XwBVOYy4CUATXKvWBwaU0yqyEkf6LjCftXJP1yxKcOg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/files/gRvmRaSDqVuX0k6ABkj0",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"files",
+						"gRvmRaSDqVuX0k6ABkj0"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "06. User 2 upload private",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					},
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjIiLCJpZCI6ImhUOUxtZHjigJkiLCJpYXQiOjE1NDE1MzAyMzJ9.y-5_ns9zVX1dijJloI3Jhga7kCcPFyfxx9lZWK8fbb8",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": ""
+						},
+						{
+							"key": "isPublic",
+							"value": "false",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/files/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"files",
+						""
+					],
+					"query": [
+						{
+							"key": "filename",
 							"value": "",
 							"disabled": true
 						}
