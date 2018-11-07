@@ -1,6 +1,7 @@
 # EZ (Goat) 3 
 An Amazon S3 like node.js back-end for upload/download of public/private files
-![image](https://user-imag|es.githubusercontent.com/43566001/48126354-94d23080-e289-11e8-90db-e520cef410dd.png)
+![image](https://user-images.githubusercontent.com/43566001/48131798-fc907780-e299-11e8-8f87-8eccefc1fb4c.png)
+
 
 ##  IronSource-challenge-s3
 
