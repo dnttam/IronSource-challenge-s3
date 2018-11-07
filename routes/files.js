@@ -22,16 +22,6 @@ var upload = multer({ storage: storage });
 
 /* Routes start here */
 
-/*
-  GET root route
-*/
-router.get("/", (req, res) => {
-  //res.send(`<h1>Welocme to Ez (Goat) 3! </h1`);
-  fs.readdir("./", (err, result) => {
-    console.log(result);
-  });
-});
-
 /* Public GET route  to download file (or metadata) by it's filename (of a specific user)
 */
 router.get("/:user/:filename", async (req, res) => {
@@ -112,7 +102,8 @@ router.post("/", auth, upload.single("file"), async (req, res) => {
     createdAt: Date.now().toString(),
     updatedAt: Date.now().toString(),
     isPublic: req.body.isPublic === "true",
-    user: req.user.name
+    user: req.user.name,
+    deletedAt: null
   };
 
   try {
@@ -193,7 +184,9 @@ router.delete("/:id", auth, async (req, res) => {
     updatedMetadata.deletedAt = Date.now();
 
     // delete the file
-    fs.unlink(`${__dirname}/../files/${metadata.filename}`);
+    fs.unlink(`${__dirname}/../files/${metadata.filename}`, err => {
+      console.log(err);
+    });
 
     // update the metadata
     await firestore.updateMetadata(req.params.id, updatedMetadata);
