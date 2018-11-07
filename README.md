@@ -11,7 +11,7 @@ An Amazon S3 like node.js back-end for upload/download of public/private files
 ##  IronSource-challenge-s3 - what's it all about
 So, this app is a back-end for uploading/downloading of files, which uses **express**, along with some middle-ware packages (**JWT**- authentication, **multer**- file uploading).
 
-Metadata for the files is stored in the cloud Google **Firestore DB** - and there's package for that as well.
+Metadata for the files is stored in the cloud Google **Firestore DB** - and there's a package for that as well.
 
 The actual files are stored on the file system under as sub directory - called files.
 
