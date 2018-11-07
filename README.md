@@ -18,11 +18,11 @@ The actual files are stored on the file system under as sub directory - called f
 ### Routes
 1. Get **_api/files/:user/:file _**-  for downloading public files. it is possible to provide a metadata=true query parameter to get the metadata of the file instead of the actual file itself. This works for deleted files as well.
 2. **Get api/files/:fileID** - for downloading of private files. access_token query parameters is required. This is a JWT that should be verified to the user who is the owner of the file.it is possible to provide a metadata=true query parameter to get the metadata of the file instead of the actual file itself. This works for deleted files as well.
-3. **Post api/files **- for uploading files. x-auth-token header with a JWT (of a user) is required. "isPublic" Boolean body parameters is also required.  It is possible to post the same file over and over again. The file is overwritten and the metadata is updated. 
+3. **Post api/files**- for uploading files. x-auth-token header with a JWT (of a user) is required. "isPublic" Boolean body parameters is also required.  It is possible to post the same file over and over again. The file is overwritten and the metadata is updated. 
 
-4. **Put api/files/:id **- for updating the isPublic property. x-auth-token header with a JWT (of a user) is required.
+4. **Put api/files/:id**- for updating the isPublic property. x-auth-token header with a JWT (of a user) is required.
 
-5. **Delete api/files/:id **- for deleting a file.
+5. **Delete api/files/:id**- for deleting a file.
 x-auth-token header with a JWT (of a user) is required.
 The file is deleted but the metadata remains forever with a deletedAT timestamp
 
