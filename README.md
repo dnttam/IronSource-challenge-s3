@@ -6,7 +6,7 @@ An Amazon S3 like node.js back-end for upload/download of public/private files
 1. It does what it needs to (at least I hope so).
 2. Clone -> npm i -> node.js index.js
 3. \Postman client files contains a JSON with some test requests.
-4. If had more time -> a.would use a DB to store the files instead of file system. b. config. c. implement a root route. d. better error handling
+4. If had more time -> a.would use a DB to store the files instead of file system. b. config. c. implement a root route. d. better error handling. e. Run spelling checks on my inline comments
 
 ##  IronSource-challenge-s3 - what's it all about
 So, this app is a back-end for uploading/downloading of files, which uses **express**, along with some middle-ware packages (**JWT **- authentication, **multer **- file uploading).
@@ -91,3 +91,5 @@ c. It would eliminate OS issues that might occur -file system permissions and th
 3. implement a GET root route that would list all the public files and this user's files.
 
 4. Better error handling and messages
+
+5. Run spelling checks on my inline comments
