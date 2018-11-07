@@ -9,3 +9,4 @@ An Amazon S3 like node.js back-end for upload/download of public/private files
 |User|x-auth-token|
 |-|-|
 |user1|eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjEiLCJpZCI6InFBemVmMzJGIiwiaWF0IjoxNTQxNTMwMjMyfQ.XwBVOYy4CUATXKvWBwaU0yqyEkf6LjCftXJP1yxKcOg|
+
