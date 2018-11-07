@@ -76,11 +76,12 @@ Sometimes they just creep me out with what they know..
 1. Research and setup a different cloud DB that would let me store the actual file stream in the database, alongside the metadata, rather than the file system
 
 I think it's probably a better solution because:
-a. There a single way of handling the data - DB
 
-b. Issues like - what happens if we succeeded in deleting the file but fails with updating the metadata - become none issue. Deleting a file is simply a DB update.
+ a. There a single way of handling the data - DB
 
-c. It would eliminate OS issues that might occur -file system permissions and things I still pray to god that will work on MAC (tested only on Windows)
+ b. Issues like - what happens if we succeeded in deleting the file but fails with updating the metadata - become none issue. Deleting a file is simply a DB update.
+
+ c. It would eliminate OS issues that might occur -file system permissions and things I still pray to god that will work on MAC (tested only on Windows)
 
 2. Move some stuff to config - like the name of the files folder - etc. Things like this are not something I would approve in a PR:
 
