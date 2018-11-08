@@ -73,15 +73,17 @@ You know, I actually received an email from Google that they have detected this!
 Sometimes they just creep me out with what they know..
 
 ## Things I would've done if I had more time
-1. Research and setup a different cloud DB that would let me store the actual file stream in the database, alongside the metadata, rather than the file system
+1. Research and setup a different cloud DB that would let me store the actual file stream in the database, alongside the metadata, rather than the file system. I'm not sure that Firestore is a good solution for that.
 
-I think it's probably a better solution because:
+I think it's definitely a better solution because:
 
- a. There a single way of handling the data - DB
+ a. In a real world app, hosted on some cloud - then what is the OS really? the physical disk of the node you got to? No, it can't work     like that - it has to be stored in some store that can also scale on its own.
+ 
+ b. There a single way of handling the data - DB
 
- b. Issues like - what happens if we succeeded in deleting the file but fails with updating the metadata - become none issue. Deleting a file is simply a DB update.
+ c. Issues like - what happens if we succeeded in deleting the file but fails with updating the metadata - become none issue. Deleting a file is simply a DB update.
 
- c. It would eliminate OS issues that might occur -file system permissions and things I still pray to god that will work on MAC (tested only on Windows)
+ d. It would eliminate OS issues that might occur -file system permissions and things I still pray to god that will work on MAC (tested only on Windows)
 
 2. Move some stuff to config - like the name of the files folder - etc. Things like this are not something I would approve in a PR:
 
