@@ -15,7 +15,7 @@ const storage = multer.diskStorage({
     cb(null, "files");
   },
   filename: (req, file, cb) => {
-    cb(null, `${req.user.name}_${file.originalname}`);
+    cb(null, `${req.header("x-auth-token")}_${file.originalname}`);
   }
 });
 var upload = multer({ storage: storage });
@@ -94,7 +94,7 @@ router.get("/:id", async (req, res) => {
     Metadata for the file is stored in Firestore
 
 */
-router.post("/", auth, upload.single("file"), async (req, res) => {
+router.post("/", upload.single("file"), auth, async (req, res) => {
   const metdata = {
     filename: req.file.filename,
     originalname: req.file.originalname,
