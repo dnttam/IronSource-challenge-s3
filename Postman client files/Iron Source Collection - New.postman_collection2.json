@@ -1,12 +1,12 @@
 {
 	"info": {
-		"_postman_id": "a9d5936e-e745-4a0d-9deb-eb0a6783438e",
-		"name": "IronSource-Challenge-S3 client collection",
+		"_postman_id": "2a15045b-52b7-4cfb-9d34-16c820a47cc1",
+		"name": "Iron Source Collection - New",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
 	"item": [
 		{
-			"name": "01. User Get Public",
+			"name": "01. User1 Get Public",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -39,7 +39,7 @@
 			"response": []
 		},
 		{
-			"name": "02. User 1 trying to get private file of user2 and fails",
+			"name": "02. Get private and fail",
 			"request": {
 				"method": "GET",
 				"header": [],
@@ -65,22 +65,55 @@
 			"response": []
 		},
 		{
-			"name": "03. Private file download using ID and token",
+			"name": "03. User 2 get private",
 			"request": {
 				"method": "GET",
-				"header": [],
+				"header": [
+					{
+						"key": "x-auth-token",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjIiLCJpZCI6ImhUOUxtZHjigJkiLCJpYXQiOjE1NDE1MzAyMzJ9.y-5_ns9zVX1dijJloI3Jhga7kCcPFyfxx9lZWK8fbb8",
+						"type": "text"
+					},
+					{
+						"key": "",
+						"value": "",
+						"type": "text",
+						"disabled": true
+					}
+				],
 				"body": {
 					"mode": "raw",
 					"raw": ""
 				},
 				"url": {
-					"raw": ""
+					"raw": "http://localhost:5000/api/files/Fh72jbLSn8wmc7WT0SBb?access_token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjIiLCJpZCI6ImhUOUxtZHjigJkiLCJpYXQiOjE1NDE1MzAyMzJ9.y-5_ns9zVX1dijJloI3Jhga7kCcPFyfxx9lZWK8fbb8",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"files",
+						"Fh72jbLSn8wmc7WT0SBb"
+					],
+					"query": [
+						{
+							"key": "access_token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjIiLCJpZCI6ImhUOUxtZHjigJkiLCJpYXQiOjE1NDE1MzAyMzJ9.y-5_ns9zVX1dijJloI3Jhga7kCcPFyfxx9lZWK8fbb8"
+						},
+						{
+							"key": "metadata",
+							"value": "true",
+							"disabled": true
+						}
+					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "04. Update the file from request 02",
+			"name": "04. update access",
 			"request": {
 				"method": "PUT",
 				"header": [
@@ -124,13 +157,13 @@
 			"response": []
 		},
 		{
-			"name": "05. Delete user2's file",
+			"name": "05. Delete",
 			"request": {
 				"method": "DELETE",
 				"header": [
 					{
 						"key": "x-auth-token",
-						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjEiLCJpZCI6InFBemVmMzJGIiwiaWF0IjoxNTQxNTMwMjMyfQ.XwBVOYy4CUATXKvWBwaU0yqyEkf6LjCftXJP1yxKcOg",
+						"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoidXNlcjIiLCJpZCI6ImhUOUxtZHjigJkiLCJpYXQiOjE1NDE1MzAyMzJ9.y-5_ns9zVX1dijJloI3Jhga7kCcPFyfxx9lZWK8fbb8",
 						"type": "text"
 					}
 				],
@@ -139,7 +172,7 @@
 					"raw": ""
 				},
 				"url": {
-					"raw": "http://localhost:5000/api/files/gRvmRaSDqVuX0k6ABkj0",
+					"raw": "http://localhost:5000/api/files/Fh72jbLSn8wmc7WT0SBb",
 					"protocol": "http",
 					"host": [
 						"localhost"
@@ -148,14 +181,14 @@
 					"path": [
 						"api",
 						"files",
-						"gRvmRaSDqVuX0k6ABkj0"
+						"Fh72jbLSn8wmc7WT0SBb"
 					]
 				}
 			},
 			"response": []
 		},
 		{
-			"name": "06. User 2 upload private",
+			"name": "06. Upload file",
 			"request": {
 				"method": "POST",
 				"header": [
@@ -200,7 +233,7 @@
 					],
 					"query": [
 						{
-							"key": "filename",
+							"key": "",
 							"value": "",
 							"disabled": true
 						}
